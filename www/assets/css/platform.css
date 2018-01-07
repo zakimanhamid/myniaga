@@ -1,17 +1,1 @@
-body{
-	/*font-family:'Open Sans',"Helvetica Neue",Helvetica,Arial,sans-serif !important;*/
-	font-family:sans-serif !important;			
-}
 
-ul.notification-list{
-	
-}
-ul.notification-list li{
-	margin-bottom:8px;
-	padding-top:3px;
-	padding-bottom:3px;
-}
-ul.notification-list li:hover{
-	color:#E01546;
-	cursor:pointer;
-}
