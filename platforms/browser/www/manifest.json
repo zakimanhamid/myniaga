@@ -4,7 +4,7 @@
   "name": "Niagain",
   "short_name": "Niagain",
   "version": "io.cordova.hellocordova",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "description": "Niagain adalah situs jual beli online dan belanja murah.",
   "author": "Niagain",
   "icons": [],
   "start_url": "index.html"
