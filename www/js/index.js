@@ -28,8 +28,17 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
-        alert('Test '+JSON.stringify(window.cordova));
-        //appLogin();
+        cordovaHTTP.get(
+            'https://api.niagain.co.id/jsonp',
+            function (response) {
+				alert(JSON.stringify(response));
+                if (response) {
+                    
+                }
+            },
+            function (error){
+                alert(JSON.stringify(error));
+            });
     },
 
     // Update DOM on a Received Event
