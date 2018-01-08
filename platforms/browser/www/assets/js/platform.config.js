@@ -14,7 +14,8 @@ var PlatformConfig={
 
 var connectJSONP=function(params,callback){ 
 	$.getJSON(PlatformConfig.domain+'?callback=?', params, function(data) {
-		callback(data);
+		alert(data.respon.pesan);
+		//callback(data);
 	});
 }
 
@@ -51,26 +52,30 @@ function appsLogout(){
 
 //==Login scope===/
 function appLogin(){
-	var appLoginTheme=function(data){
-		if(data.respon.pesan=="sukses"){
-			$.cookie('username', 'sukses', { expires:1 });
-			$.cookie('data_http',data.result.items.DATA_HTTP, { expires:1 });
-			$.cookie('token_http',data.result.items.TOKEN_HTTP, { expires:1 }); 
-			window.location="dashboard.html";
-		}else if(data.respon.pesan=="gagal"){
-			//no act
-			$(".btn-login").html("Sign In");$(".btn-login").removeAttr("disabled");
-			$(".fLogin").prepend('<div class="alert alert-danger alert-dismissible">'+
-				'<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'+
-				'<h4><i class="icon fa fa-ban"></i> Gagal</h4>'+
-				'<small>'+data.respon.text_msg+'</small>'+
-				'</div>');
-			setTimeout(function() {
-				$(".alert").alert('close');
-			}, 4000);
-			$.cookie('username', 'null', { expires:1 });
-			$.cookie('data_http','0', { expires:1 });
-		}
+	var appLoginTheme=function(params){ alert('adaas'+PlatformConfig.domain);
+			$.getJSON(PlatformConfig.domain+'?callback=?', params, function(data) {
+				alert(data.respon.pesan);
+				//callback(data);
+			});
+		//if(data.respon.pesan=="sukses"){
+			////$.cookie('username', 'sukses', { expires:1 });
+			////$.cookie('data_http',data.result.items.DATA_HTTP, { expires:1 });
+			////$.cookie('token_http',data.result.items.TOKEN_HTTP, { expires:1 }); 
+			//window.location="dashboard.html";
+		//}else if(data.respon.pesan=="gagal"){
+			////no act
+			//$(".btn-login").html("Sign In");$(".btn-login").removeAttr("disabled");
+			//$(".fLogin").prepend('<div class="alert alert-danger alert-dismissible">'+
+				//'<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'+
+				//'<h4><i class="icon fa fa-ban"></i> Gagal</h4>'+
+				//'<small>'+data.respon.text_msg+'</small>'+
+				//'</div>');
+			//setTimeout(function() {
+				//$(".alert").alert('close');
+			//}, 4000);
+			////$.cookie('username', 'null', { expires:1 });
+			////$.cookie('data_http','0', { expires:1 });
+		//}
 	}	
 	
 	$(".btn-login").html("Loading...");$(".btn-login").attr("disabled","disabled");
@@ -90,7 +95,8 @@ function appLogin(){
 			//parameter kaki untuk halaman dan batas record tampil tiap halaman	
 			footers:{}
 	}; //parameter
-	var JSONP=new connectJSONP(params,appLoginTheme);	
+	//var JSONP=new connectJSONP(params,appLoginTheme);
+	appLoginTheme(params);	
 }//end appLogin()
 
 
@@ -104,3 +110,4 @@ function appLogin(){
 		//alert(data.respon.text_msg);
 	//}
 //}//end theme
+

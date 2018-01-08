@@ -28,7 +28,8 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
-        alert('Joko');
+        alert('Test '+JSON.stringify(window.cordova));
+        //appLogin();
     },
 
     // Update DOM on a Received Event
